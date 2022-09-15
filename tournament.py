@@ -2,6 +2,10 @@ import random
 
 class Equipe:
     
+    v = 0
+    d =  0
+    scr = 0
+
     def __init__(self, nome: str, membros: list):
         self.nome = nome
         self.membros = membros
@@ -11,18 +15,32 @@ class Equipe:
         for membro in self.membros:
             print(membro)
 
+    def score(self, n: int):
+        
+        self.scr += n
+        
+        if n > 0:
+            self.v += n
+        else: 
+            self.d += n
+    
+    def placar(self):
+        print(f"Score: {self.scr}\nV: {self.v}\nD: {self.d}")
+
 class Torneio:
     
     def __init__(self, equipes: list):
         self.equipes = equipes
 
     def presentation(self):
-        for equipe in self.equipes:
+        for equipe in self.equipes[:2]:
             print(equipe.presentation())
 
 Bananos = Equipe("Bananos", ["A", "B", "C"])
-Moe = Equipe("Moe", ["D", "F", "G"])
 
-T = Torneio([Bananos, Moe])
+Bananos.placar()
 
-T.presentation()
+Bananos.score(int(1))
+
+Bananos.placar()
+
