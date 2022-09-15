@@ -40,7 +40,7 @@ Bananos = Equipe("Bananos", ["A", "B", "C"])
 
 Bananos.placar()
 
-Bananos.score(int(1))
+Bananos.score(int(2))
 
 Bananos.placar()
 
