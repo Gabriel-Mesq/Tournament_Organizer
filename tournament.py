@@ -11,7 +11,7 @@ class Equipe:
         self.membros = membros
 
     def presentation(self):
-        print(f'Nome da equipe: {self.nome}\nIntegranntes da equipe:') 
+        print(f'Nome da equipe: {self.nome}\nIntegrantes da equipe:') 
         for membro in self.membros:
             print(membro)
 
@@ -27,20 +27,36 @@ class Equipe:
     def placar(self):
         print(f"Score: {self.scr}\nV: {self.v}\nD: {self.d}")
 
-class Torneio:
+class Tournament:
     
     def __init__(self, equipes: list):
         self.equipes = equipes
 
     def presentation(self):
-        for equipe in self.equipes[:2]:
+        for equipe in self.equipes:
             print(equipe.presentation())
 
-Bananos = Equipe("Bananos", ["A", "B", "C"])
+    def brackets(self):
+        
+        random.shuffle(self.equipes)
+        
+        i = 0
 
-Bananos.placar()
+        try:
+            
+            while i < len(self.equipes):
+                print(self.equipes[i].nome, "x", self.equipes[i + 1].nome, "\n") 
+                i += 2
+        
+        except IndexError:
+            print(self.equipes[len(self.equipes) - 1].nome)
 
-Bananos.score(int(2))
+A = Equipe("Ada", ["a1", "a2", "a3"])
+B = Equipe("Bananos", ["A", "B", "C"])
+C = Equipe("Cada", ["D", "F", "G"])
+D = Equipe("Dada", ["D", "F", "G"])
+E = Equipe("Eada", ["D", "F", "G"])
 
-Bananos.placar()
+T = Tournament([A, B, C, D, E])
 
+T.brackets()
