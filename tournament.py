@@ -4,8 +4,8 @@ class Member:
 
     def __init__(self, nome: str, peso: float):
         self.nome = nome
-        self.peso = peso
-        
+        self.peso = peso    
+
 class Equipe:
     
     v = 0
@@ -57,7 +57,7 @@ class Tournament:
         except IndexError:
             print(self.equipes[len(self.equipes) - 1].nome)
 
-A = Equipe("Ada", ["a1", "a2", "a3"])
+A = Equipe("Os Bots", ["a1", "a2", "a3"])
 B = Equipe("Bananos", ["A", "B", "C"])
 C = Equipe("Cada", ["D", "F", "G"])
 D = Equipe("Dada", ["D", "F", "G"])
@@ -66,3 +66,14 @@ E = Equipe("Eada", ["D", "F", "G"])
 T = Tournament([A, B, C, D, E])
 
 T.brackets()
+
+
+
+"""
+Ideias:
+
+Soma da pontuação do time deve dar times com a menor descrepancia possivel
+
+
+
+"""
