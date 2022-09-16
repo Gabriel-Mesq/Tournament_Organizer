@@ -2,9 +2,39 @@ import random
 
 class Member:
 
-    def __init__(self, nome: str, peso: float):
-        self.nome = nome
-        self.peso = peso    
+    members_list = []
+    teams_list = []
+
+    def __init__(self, name: str, weight: int):
+        self.name = name
+        self.weight = weight  
+
+    def addMember(self):
+        self.members_list.append(self)
+
+    def divideTeams(self, qt):
+        
+        #Sort the members in ascending order of weight
+        
+        i = 0
+
+        while len(self.members_list) > qt:
+            self.teams_list[i].append(self.members_list[0])
+            self.teams_list[i].append(self.members_list[-1])
+            self.members_list.pop[0]
+            self.members_list.pop[-1]
+            i += 1
+
+        for i in range(qt):
+            self.teams_list[i].append(self.members_list[i])
+
+        for i in self.teams_list:
+            print(i)
+
+    def presentation(self):
+
+        for i in self.members_list:
+            print(i.name)
 
 class Equipe:
     
@@ -12,12 +42,12 @@ class Equipe:
     d =  0
     scr = 0
 
-    def __init__(self, nome: str, membros: list):
-        self.nome = nome
+    def __init__(self, name: str, membros: list):
+        self.name = name
         self.membros = membros
 
     def presentation(self):
-        print(f'Nome da equipe: {self.nome}\nIntegrantes da equipe:') 
+        print(f'Nome da equipe: {self.name}\nIntegrantes da equipe:') 
         for membro in self.membros:
             print(membro)
 
@@ -51,21 +81,18 @@ class Tournament:
         try:
             
             while i < len(self.equipes):
-                print(self.equipes[i].nome, "x", self.equipes[i + 1].nome, "\n") 
+                print(self.equipes[i].name, "x", self.equipes[i + 1].name, "\n") 
                 i += 2
         
         except IndexError:
-            print(self.equipes[len(self.equipes) - 1].nome)
+            print(self.equipes[len(self.equipes) - 1].name)
 
-A = Equipe("Os Bots", ["a1", "a2", "a3"])
-B = Equipe("Bananos", ["A", "B", "C"])
-C = Equipe("Cada", ["D", "F", "G"])
-D = Equipe("Dada", ["D", "F", "G"])
-E = Equipe("Eada", ["D", "F", "G"])
+qt = int(input("How many teams are going to compete? "))
 
-T = Tournament([A, B, C, D, E])
+for i in range(qt*5):
+    Member.addMember(Member(input("Nickname: "), int(input("Tier: "))))
 
-T.brackets()
+Member.presentation(Member)
 
 
 
@@ -74,6 +101,7 @@ Ideias:
 
 Soma da pontuação do time deve dar times com a menor descrepancia possivel
 
+Forma de somar 5 pesos
 
 
 """
