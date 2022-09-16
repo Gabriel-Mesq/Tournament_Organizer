@@ -1,5 +1,11 @@
 import random
 
+class Member:
+
+    def __init__(self, nome: str, peso: float):
+        self.nome = nome
+        self.peso = peso
+        
 class Equipe:
     
     v = 0
@@ -39,7 +45,7 @@ class Tournament:
     def brackets(self):
         
         random.shuffle(self.equipes)
-        
+
         i = 0
 
         try:
